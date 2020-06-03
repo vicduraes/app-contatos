@@ -6,7 +6,7 @@ import "./Contacts.scss";
 class Contacts extends Component {
   render() {
     return (
-      <div className="container">
+      <div data-testid="contacts" className="container">
         <section className="contacts">
           <Contact />
         </section>

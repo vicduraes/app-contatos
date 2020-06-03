@@ -7,7 +7,7 @@ import "./Filters.scss";
 class Filters extends Component {
   render() {
     return (
-      <div className="container">
+      <div data-testid="filters" className="container">
         <section className="filters">
           <div className="filters__search">
             <input

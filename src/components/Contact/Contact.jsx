@@ -4,7 +4,7 @@ import "./Contact.scss";
 class Contact extends Component {
   render() {
     return (
-      <article className="contact">
+      <article data-testid="contact" className="contact">
         <span className="contact__avatar" />
         <span className="contact__data">Nome</span>
         <span className="contact__data">Telefone</span>
