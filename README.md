@@ -1,4 +1,4 @@
-# SPA: App de Contatos - PARTE 1
+# SPA: App de Contatos - PARTE 1 e 2
 
 Desafio do curso **React Women**, desenvolvido pela [Codenation](https://www.codenation.dev/) em parceria com a [Loft](https://www.loft.com.br/).
 
@@ -19,6 +19,13 @@ GET: _https://5e82ac6c78337f00160ae496.mockapi.io/api/v1/contacts_
 - Modularize os componentes na pasta components.
 - Atualize os arquivos de componentes carregando corretamente seus estilos e suas marcações JSX.
 
+### Requisitos - Parte 2:
+
+- Crie os _estados_ do SPA.
+- Consuma a _API de contatos_ no _ciclo de vida correto_ do componente.
+- Implemente a **busca** para filtrar os contatos em tempo real.
+- Implemente os filtros de ordenação por _Nome_, _País_, _Empresa_, _Departamento_ e _Data de Admissão_.
+
 ### Iniciar o projeto:
 
 - Instale as dependências do projeto com o comando _yarn install_ ou _npm install_.
@@ -33,7 +40,10 @@ GET: _https://5e82ac6c78337f00160ae496.mockapi.io/api/v1/contacts_
 Neste desafio você vai praticar os seus conhecimentos em:
 
 - **React**
+- **React - Ciclo de vida de componentes**
 - **Modularização**
+- **Fetch API**
+- **JS:** _Array.map_, _Array.filter_, _Array.reduce_, _Array.find_, _Array.sort_
 
 ## Requisitos:
 
