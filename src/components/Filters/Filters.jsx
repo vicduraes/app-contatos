@@ -5,7 +5,22 @@ import { faSearch, faSortDown } from "@fortawesome/free-solid-svg-icons";
 import "./Filters.scss";
 
 class Filters extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      query: "",
+    };
+    this.handleChangeInput = this.handleChangeInput.bind(this);
+  }
+
+  handleChangeInput(query) {
+    this.setState({
+      query,
+    });
+  }
+
   render() {
+    const { handleSearchInput } = this.props;
     return (
       <div data-testid="filters" className="container">
         <section className="filters">
@@ -14,9 +29,19 @@ class Filters extends Component {
               type="text"
               className="filters__search__input"
               placeholder="Pesquisar"
+              value={this.state.query}
+              onChange={(e) =>
+                this.handleChangeInput(
+                  e.target.value,
+                  handleSearchInput(e.target.value)
+                )
+              }
             />
 
-            <button className="filters__search__icon">
+            <button
+              className="filters__search__icon"
+              onClick={() => handleSearchInput(this.state.query)}
+            >
               <FontAwesomeIcon icon={faSearch} />
             </button>
           </div>

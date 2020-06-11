@@ -9,25 +9,38 @@ class App extends Component {
     super(props);
     this.state = {
       contacts: [],
+      filteredContacts: [],
+      sortFilter: true,
+      activeFilter: "name",
     };
+    this.handleSearchInput = this.handleSearchInput.bind(this);
   }
 
   getAPI() {
     fetch("https://5e82ac6c78337f00160ae496.mockapi.io/api/v1/contacts")
       .then((response) => response.json())
-      .then((data) => this.setState({ contacts: data }));
+      .then((data) => {
+        this.setState({ contacts: data, filteredContacts: data });
+      });
   }
 
   componentDidMount() {
     this.getAPI();
   }
 
+  handleSearchInput(query) {
+    const filtered = this.state.contacts.filter((contact) =>
+      contact.name.toLowerCase().includes(query)
+    );
+    this.setState({ filteredContacts: filtered });
+  }
+
   render() {
     return (
       <>
         <Topbar />
-        <Filters />
-        <Contacts contacts={this.state.contacts} />
+        <Filters handleSearchInput={this.handleSearchInput} />
+        <Contacts contacts={this.state.filteredContacts} />
       </>
     );
   }
