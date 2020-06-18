@@ -10,27 +10,6 @@ O desafio é desenvolver um _SPA (Single Page Application)_ de uma lista de cont
 - Busca de um contato aplicando filtro em **tempo real**.
 - Aplicar filtros de ordenação por _Nome_, _País_, _Empresa_, _Departamento_ e _Data de Admissão_.
 
-### API de Contatos:
-
-GET: _https://5e82ac6c78337f00160ae496.mockapi.io/api/v1/contacts_
-
-### Requisitos - Parte 1:
-
-- Modularize os componentes na pasta components.
-- Atualize os arquivos de componentes carregando corretamente seus estilos e suas marcações JSX.
-
-### Requisitos - Parte 2:
-
-- Crie os _estados_ do SPA.
-- Consuma a _API de contatos_ no _ciclo de vida correto_ do componente.
-- Implemente a **busca** para filtrar os contatos em tempo real.
-- Implemente os filtros de ordenação por _Nome_, _País_, _Empresa_, _Departamento_ e _Data de Admissão_.
-
-### Iniciar o projeto:
-
-- Instale as dependências do projeto com o comando _yarn install_ ou _npm install_.
-- Inicie o projeto com comando _yarn start_ ou _npm start_ / _npm run start_.
-
 **Preview:**
 
 [Contacts SPA](https://vimeo.com/414861574/cb0d443103)
