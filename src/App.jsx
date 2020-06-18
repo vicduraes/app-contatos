@@ -10,10 +10,11 @@ class App extends Component {
     this.state = {
       contacts: [],
       filteredContacts: [],
-      sortFilter: true,
+      sortAscending: true,
       activeFilter: "name",
     };
     this.handleSearchInput = this.handleSearchInput.bind(this);
+    this.handleFilters = this.handleFilters.bind(this);
   }
 
   getAPI() {
@@ -21,6 +22,7 @@ class App extends Component {
       .then((response) => response.json())
       .then((data) => {
         this.setState({ contacts: data, filteredContacts: data });
+        this.handleFilters(this.state.activeFilter);
       });
   }
 
@@ -35,13 +37,28 @@ class App extends Component {
     this.setState({ filteredContacts: filtered });
   }
 
+  handleFilters = (filterParam) => {
+    this.setState({ sortAscending: !this.state.sortAscending });
+
+    let filteredContacts = this.state.filteredContacts.sort((a, b) => {
+      if (this.state.sortAscending) {
+        return a[filterParam] < b[filterParam] ? 1 : -1;
+      }
+      return a[filterParam] < b[filterParam] ? -1 : 1;
+    });
+    this.setState({ filteredContacts });
+  };
+
   render() {
     return (
-      <>
+      <div data-testid="app" className="app">
         <Topbar />
-        <Filters handleSearchInput={this.handleSearchInput} />
+        <Filters
+          handleSearchInput={this.handleSearchInput}
+          handleFilters={this.handleFilters}
+        />
         <Contacts contacts={this.state.filteredContacts} />
-      </>
+      </div>
     );
   }
 }

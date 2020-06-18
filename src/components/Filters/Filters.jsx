@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faSortDown } from "@fortawesome/free-solid-svg-icons";
+import classnames from "classnames";
 
 import "./Filters.scss";
 
@@ -9,6 +10,7 @@ class Filters extends Component {
     super(props);
     this.state = {
       query: "",
+      selectedBtn: props.activeFilter,
     };
     this.handleChangeInput = this.handleChangeInput.bind(this);
   }
@@ -20,7 +22,7 @@ class Filters extends Component {
   }
 
   render() {
-    const { handleSearchInput } = this.props;
+    const { handleSearchInput, handleFilters } = this.props;
     return (
       <div data-testid="filters" className="container">
         <section className="filters">
@@ -46,7 +48,15 @@ class Filters extends Component {
             </button>
           </div>
 
-          <button className="filters__item is-selected">
+          <button
+            className={classnames("filters__item", {
+              "is-selected": this.state.selectedBtn === "name",
+            })}
+            onClick={() => {
+              handleFilters("name");
+              this.setState({ selectedBtn: "name" });
+            }}
+          >
             Nome
             <FontAwesomeIcon
               className="filters__item__icon"
@@ -54,7 +64,15 @@ class Filters extends Component {
             />
           </button>
 
-          <button className="filters__item">
+          <button
+            className={classnames("filters__item", {
+              "is-selected": this.state.selectedBtn === "country",
+            })}
+            onClick={() => {
+              handleFilters("country");
+              this.setState({ selectedBtn: "country" });
+            }}
+          >
             País
             <FontAwesomeIcon
               className="filters__item__icon"
@@ -62,7 +80,15 @@ class Filters extends Component {
             />
           </button>
 
-          <button className="filters__item">
+          <button
+            className={classnames("filters__item", {
+              "is-selected": this.state.selectedBtn === "company",
+            })}
+            onClick={() => {
+              handleFilters("company");
+              this.setState({ selectedBtn: "company" });
+            }}
+          >
             Empresa
             <FontAwesomeIcon
               className="filters__item__icon"
@@ -70,7 +96,15 @@ class Filters extends Component {
             />
           </button>
 
-          <button className="filters__item">
+          <button
+            className={classnames("filters__item", {
+              "is-selected": this.state.selectedBtn === "department",
+            })}
+            onClick={() => {
+              handleFilters("department");
+              this.setState({ selectedBtn: "department" });
+            }}
+          >
             Departamento
             <FontAwesomeIcon
               className="filters__item__icon"
@@ -78,7 +112,15 @@ class Filters extends Component {
             />
           </button>
 
-          <button className="filters__item">
+          <button
+            className={classnames("filters__item", {
+              "is-selected": this.state.selectedBtn === "admissionDate",
+            })}
+            onClick={() => {
+              handleFilters("admissionDate");
+              this.setState({ selectedBtn: "admissionDate" });
+            }}
+          >
             Data de admissão
             <FontAwesomeIcon
               className="filters__item__icon"
